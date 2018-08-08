@@ -1,4 +1,4 @@
-{% set version = '0.4.1' %}
+{% set version = '0.4.4' %}
 
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
@@ -12,7 +12,7 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/aws.signature_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/aws.signature/aws.signature_{{ version }}.tar.gz
-  sha256: 3255c8e88e8a7ce51ffc6032e21c3a3398b7654d79e83d5d5b6310f3b8048d24
+  sha256: ccd76f4b4152433828cffd58cc3b8a4eb90df4bf17ee5c535139a246d5a984a3
 
 build:
   merge_build_host: True  # [win]
@@ -24,6 +24,7 @@ build:
 
 requirements:
   build:
+    - {{posix}}zip               # [win]
 
   host:
     - r-base
@@ -46,8 +47,8 @@ about:
   summary: Generates version 2 and version 4 request signatures for Amazon Web Services ('AWS')
     <https://aws.amazon.com/> Application Programming Interfaces ('APIs') and provides
     a mechanism for retrieving credentials from environment variables, 'AWS' credentials
-    files, and 'EC2' instance metadata. For use on 'EC2', users will need to install
-    the suggested package 'aws.ec2metadata' <https://cran.r-project.org/package=aws.ec2metadata>.
+    files, and 'EC2' instance metadata. For use on 'EC2' instances, users will need
+    to install the suggested package 'aws.ec2metadata' <https://cran.r-project.org/package=aws.ec2metadata>.
   license_family: GPL3
   license_file: '{{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-3'  # [unix]
   license_file: '{{ environ["PREFIX"] }}\R\share\licenses\GPL-3'  # [win]
