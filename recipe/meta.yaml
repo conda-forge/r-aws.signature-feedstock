@@ -1,4 +1,4 @@
-{% set version = "0.5.0" %}
+{% set version = '0.5.2' %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -8,14 +8,13 @@ package:
 
 source:
   url:
-    - https://github.com/cloudyr/cloudyr.github.io/raw/master/drat/src/contrib/aws.signature_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/aws.signature_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/aws.signature/aws.signature_{{ version }}.tar.gz
-  sha256: 2e4dbb41e109b2176d5cb9b5bced31b3b24f1b3707d3fd08327123925a29d2ec
+  sha256: aef92b7a5c49b2bca1afdcbfc464440aabeabcdc95da170ac5c71a2adc5b716a
 
 build:
   merge_build_host: True  # [win]
-  number: 1
+  number: 0
   noarch: generic
   rpaths:
     - lib/R/lib/
@@ -52,3 +51,23 @@ about:
 extra:
   recipe-maintainers:
     - conda-forge/r
+
+# Package: aws.signature
+# Type: Package
+# Title: Amazon Web Services Request Signatures
+# Version: 0.5.2
+# Date: 2019-08-08
+# Authors@R: c(person("Thomas J.", "Leeper", role = c("aut"), email = "thosjleeper@gmail.com", comment = c(ORCID = "0000-0003-4097-6326")), person("Jonathan", "Stott", email = "jonathan.stott@magairports.com", role = c("cre", "aut")) )
+# Description: Generates version 2 and version 4 request signatures for Amazon Web Services ('AWS') <https://aws.amazon.com/> Application Programming Interfaces ('APIs') and provides a mechanism for retrieving credentials from environment variables, 'AWS' credentials files, and 'EC2' instance metadata. For use on 'EC2' instances, users will need to install the suggested package 'aws.ec2metadata' <https://cran.r-project.org/package=aws.ec2metadata>.
+# License: GPL (>= 2)
+# Imports: digest, base64enc
+# Suggests: testthat (>= 2.1.0), aws.ec2metadata (>= 0.1.6)
+# URL: https://github.com/cloudyr/aws.signature
+# BugReports: https://github.com/cloudyr/aws.signature/issues
+# RoxygenNote: 6.1.1
+# NeedsCompilation: no
+# Packaged: 2019-08-08 15:43:47 UTC; jon_m
+# Author: Thomas J. Leeper [aut] (<https://orcid.org/0000-0003-4097-6326>), Jonathan Stott [cre, aut]
+# Maintainer: Jonathan Stott <jonathan.stott@magairports.com>
+# Repository: CRAN
+# Date/Publication: 2019-08-08 16:10:02 UTC
