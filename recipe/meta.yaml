@@ -1,4 +1,4 @@
-{% set version = '0.5.2' %}
+{% set version = "0.6.0" %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -10,11 +10,11 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/aws.signature_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/aws.signature/aws.signature_{{ version }}.tar.gz
-  sha256: aef92b7a5c49b2bca1afdcbfc464440aabeabcdc95da170ac5c71a2adc5b716a
+  sha256: f7fe4f686979be21e5a8ba7ae11f0fade4f5aaf4e98063b5349ee0962dbb9496
 
 build:
-  merge_build_host: True  # [win]
-  number: 1
+  merge_build_host: true  # [win]
+  number: 0
   noarch: generic
   rpaths:
     - lib/R/lib/
@@ -40,13 +40,10 @@ test:
 about:
   home: https://github.com/cloudyr/aws.signature
   license: GPL (>= 2)
-  summary: Generates version 2 and version 4 request signatures for Amazon Web Services ('AWS')
-    <https://aws.amazon.com/> Application Programming Interfaces ('APIs') and provides
-    a mechanism for retrieving credentials from environment variables, 'AWS' credentials
-    files, and 'EC2' instance metadata. For use on 'EC2' instances, users will need
-    to install the suggested package 'aws.ec2metadata' <https://cran.r-project.org/package=aws.ec2metadata>.
+  summary: Generates version 2 and version 4 request signatures for Amazon Web Services ('AWS') <https://aws.amazon.com/> Application Programming Interfaces ('APIs') and provides a mechanism for retrieving credentials from environment variables, 'AWS' credentials files, and 'EC2' instance metadata. For use on 'EC2' instances,
+    users will need to install the suggested package 'aws.ec2metadata' <https://cran.r-project.org/package=aws.ec2metadata>.
   license_family: GPL3
-  license_file: '{{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-2'
+  license_file: {{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-2
 
 extra:
   recipe-maintainers:
