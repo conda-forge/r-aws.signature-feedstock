@@ -3,7 +3,7 @@ About r-aws.signature
 
 Home: https://github.com/cloudyr/aws.signature
 
-Package license: GPL (>= 2)
+Package license: GPL-2.0-or-later
 
 Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/r-aws.signature-feedstock/blob/master/LICENSE.txt)
 
