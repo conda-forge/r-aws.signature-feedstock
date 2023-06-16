@@ -1,11 +1,11 @@
-About r-aws.signature
-=====================
+About r-aws.signature-feedstock
+===============================
+
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/r-aws.signature-feedstock/blob/main/LICENSE.txt)
 
 Home: https://github.com/cloudyr/aws.signature
 
 Package license: GPL-2.0-or-later
-
-Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/r-aws.signature-feedstock/blob/main/LICENSE.txt)
 
 Summary: Generates version 2 and version 4 request signatures for Amazon Web Services ('AWS') <https://aws.amazon.com/> Application Programming Interfaces ('APIs') and provides a mechanism for retrieving credentials from environment variables, 'AWS' credentials files, and 'EC2' instance metadata. For use on 'EC2' instances, users will need to install the suggested package 'aws.ec2metadata' <https://cran.r-project.org/package=aws.ec2metadata>.
 
