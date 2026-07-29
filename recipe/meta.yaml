@@ -1,4 +1,4 @@
-{% set version = "0.6.0" %}
+{% set version = "0.6.2" %}
 {% set posix = 'm2-' if win else '' %}
 
 package:
@@ -9,26 +9,35 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/aws.signature_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/aws.signature/aws.signature_{{ version }}.tar.gz
-  sha256: f7fe4f686979be21e5a8ba7ae11f0fade4f5aaf4e98063b5349ee0962dbb9496
+  sha256: 7df95b77cd51f9bc37181ff6c76e02d371e88be51971c2d5a47b2f99293c2cad
 
 build:
-  number: 4
+  number: 0
   noarch: generic
   rpaths:
     - lib/R/lib/
     - lib/
+  missing_dso_whitelist:
+    - '*/R.dll'        # [win]
+    - '*/Rblas.dll'    # [win]
+    - '*/Rlapack.dll'  # [win]
 
 requirements:
   build:
     - {{ posix }}zip               # [win]
+    - cross-r-base {{ r_base }}    # [build_platform != target_platform]
   host:
     - r-base
     - r-base64enc
+    - r-curl
     - r-digest
+    - r-jsonlite
   run:
     - r-base
     - r-base64enc
+    - r-curl
     - r-digest
+    - r-jsonlite
 
 test:
   commands:
@@ -38,8 +47,8 @@ test:
 about:
   home: https://github.com/cloudyr/aws.signature
   license: GPL-2.0-or-later
-  summary: Generates version 2 and version 4 request signatures for Amazon Web Services ('AWS') <https://aws.amazon.com/> Application Programming Interfaces ('APIs') and provides a mechanism for retrieving credentials from environment variables, 'AWS' credentials files, and 'EC2' instance metadata. For use on 'EC2' instances,
-    users will need to install the suggested package 'aws.ec2metadata' <https://cran.r-project.org/package=aws.ec2metadata>.
+  summary: Generates version 2 and version 4 request signatures for Amazon Web Services ('AWS') <https://aws.amazon.com/> Application Programming Interfaces ('APIs') and provides a mechanism for retrieving credentials from environment variables, 'AWS' credentials files, and 'EC2' instance metadata. For use on 'EC2' 
+    instances, users will need to install the suggested package 'aws.ec2metadata' <https://cran.r-project.org/package=aws.ec2metadata>.
   license_family: GPL3
   license_file:
     - {{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-2
